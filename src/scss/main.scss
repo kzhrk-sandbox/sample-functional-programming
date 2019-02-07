@@ -1,0 +1,56 @@
+@import "../../node_modules/reset-css/sass/reset";
+
+.modal__inner {
+  position: relative;
+  top: 50px;
+  right: 0;
+  bottom: 50px;
+  left: 0;
+  max-width: 300px;
+  margin: auto;
+  padding: 40px 60px;
+  background-color: #eee;
+}
+.modal__headline {
+  font-size: 20px;
+  font-weight: bold;
+}
+.modal__content {
+  margin-top: 15px;
+}
+.modal__close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  text-indent: -9999px;
+  overflow: hidden;
+  -webkit-appearance: none;
+  appearance: none;
+  &:after {
+    content: "X";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    text-indent: 0;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+  }
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.7);
+  &.is-show {
+    display: block;
+  }
+}
