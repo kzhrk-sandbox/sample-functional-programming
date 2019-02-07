@@ -1,9 +1,9 @@
-import Modal from './modules/modal';
+import Modal from './modules/Modal';
 
 window.addEventListener(
   'DOMContentLoaded',
   () => {
-    const modal = new Modal({
+    const modal = Modal({
       el: document.querySelector('.modal'),
       openButton: document.querySelector('.button'),
       closeButton: document.querySelector('.modal__close'),
@@ -13,7 +13,7 @@ window.addEventListener(
     window.addEventListener(
       'mousewheel',
       e => {
-        if (modal.isShow) {
+        if (modal.state.isShow) {
           e.preventDefault();
         }
       },
@@ -25,7 +25,7 @@ window.addEventListener(
     window.addEventListener(
       'touchmove',
       e => {
-        if (modal.isShow) {
+        if (modal.state.isShow) {
           e.preventDefault();
         }
       },

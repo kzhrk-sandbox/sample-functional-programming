@@ -1,5 +1,9 @@
 @import "../../node_modules/reset-css/sass/reset";
 
+body {
+  height: 3000px;
+}
+
 .modal__inner {
   position: relative;
   top: 50px;

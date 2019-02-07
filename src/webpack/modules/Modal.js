@@ -1,42 +1,41 @@
-export default class Modal {
-  constructor({ el, openButton, closeButton, overlay }) {
-    this.el = el;
-    this.openButton = openButton;
-    this.closeButton = closeButton;
-    this.overlay = overlay;
-    this.isShow = false;
-    this.className = {
-      show: 'is-show'
-    };
+export default function Modal({
+  el, // eslint-disable-line no-unused-vars
+  openButton,
+  closeButton,
+  overlay
+}) {
+  const state = {
+    isShow: false
+  };
+  const className = {
+    show: 'is-show'
+  };
 
-    this.addEvent();
-  }
+  const init = () => {
+    addEvent();
+  };
 
-  addEvent() {
-    this.openButton.addEventListener(
-      'click',
-      () => {
-        this.show();
-      },
-      false
-    );
+  const addEvent = () => {
+    openButton.addEventListener('click', show, false);
+    closeButton.addEventListener('click', hide, false);
+  };
 
-    this.closeButton.addEventListener(
-      'click',
-      () => {
-        this.hide();
-      },
-      false
-    );
-  }
+  const show = () => {
+    state.isShow = true;
+    overlay.classList.add(className.show);
+  };
 
-  show() {
-    this.isShow = true;
-    this.overlay.classList.add(this.className.show);
-  }
+  const hide = () => {
+    state.isShow = false;
+    overlay.classList.remove(className.show);
+  };
 
-  hide() {
-    this.isShow = false;
-    this.overlay.classList.remove(this.className.show);
-  }
+  init();
+
+  return {
+    ...arguments[0],
+    state,
+    show,
+    hide
+  };
 }
